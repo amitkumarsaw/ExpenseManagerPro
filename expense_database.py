@@ -1,5 +1,6 @@
 import mysql.connector
 
+# connect database
 def get_connection():
     return mysql.connector.connect(
     host="localhost",
@@ -10,38 +11,34 @@ def get_connection():
     )
 
 
+if __name__ == '__main__':
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""CREATE TABLE IF NOT EXISTS users(
+                    userID varchar(100) PRIMARY KEY,
+                    username varchar(100) NOT NULL,
+                    password varchar(100) NOT NULL,
+                    admin_name varchar(100) NOT NULL,
+                    user_status varchar(100) NOT NULL,
+                    is_admin varchar(100) NOT NULL,
+                    date datetime default now())""")
 
+    cursor.close()
+    conn.close()
 
-# # connect database
-# def get_connection():
-#     return sqlite3.connect(DB_FILE)
+if __name__ == '__main__':
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""CREATE TABLE IF NOT EXISTS expense(
+                    userID varchar(100),
+                    date date NOT NULL,
+                    product_name varchar(100) NOT NULL,
+                    quantity int NOT NULL,
+                    expense float NOT NULL,
+                    FOREIGN KEY (userID) REFERENCES users(userID))""")
 
-# if __name__ == '__main__':
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     cursor.execute("""CREATE TABLE IF NOT EXISTS Users(
-#                     userid TEXT PRIMARY KEY,
-#                     password TEXT NOT NULL,
-#                     adminName TEXT NOT NULL,
-#                     user_status TEXT NOT NULL,
-#                     isadmin Text NOT NULL,
-#                     date_time TEXT NOT NULL)""")
-
-#     cursor.close()
-#     conn.close()
-
-# if __name__ == '__main__':
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     cursor.execute("""CREATE TABLE IF NOT EXISTS expenseTable_items(
-#                     userid TEXT NOT NULL,
-#                     date_time TEXT NOT NULL,
-#                     title TEXT NOT NULL,
-#                     expense REAL NOT NULL,
-#                     FOREIGN KEY (userid) REFERENCES expenseTable_users (userid))""")
-
-#     cursor.close()
-#     conn.close()
+    cursor.close()
+    conn.close()
 
 # # conn = get_connection()
 # # cursor = conn.cursor()
