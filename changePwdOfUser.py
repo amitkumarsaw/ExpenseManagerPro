@@ -153,7 +153,7 @@ def changePwdOfUser(self, userid):
 
     # change pwd of a user button
     self.button_chngPwd = Button(self.frame2, text='CHANGE PASSWORD', command=changePwd)
-    self.button_chngPwd.grid(row=0, column=2, pady=30, padx=250)
+    self.button_chngPwd.grid(row=0, column=2, pady=30, padx=200)
 
     # clear screen button
     self.button_clearScreen = Button(self.frame2, text='CLEAR SCREEN', command=clear_screen)

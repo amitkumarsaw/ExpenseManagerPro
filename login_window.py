@@ -59,7 +59,8 @@ class Login(Frame):
                     self.master.destroy()
                     mainroot = Tk()
                     # set size of main window in maximize state
-                    mainroot.state('zoomed')
+                    # mainroot.state('zoomed')
+                    mainroot.attributes('-zoomed', True)
                     MainWindow(mainroot, self.user_info[5], self.nuname, self.user_info[1])
                     print(self.user_info[5])
                     mainroot.mainloop()

@@ -19,7 +19,7 @@ def get_connection():
 # if __name__ == '__main__':
 #     conn = get_connection()
 #     cursor = conn.cursor()
-#     cursor.execute("""CREATE TABLE IF NOT EXISTS expenseTable_Users(
+#     cursor.execute("""CREATE TABLE IF NOT EXISTS Users(
 #                     userid TEXT PRIMARY KEY,
 #                     password TEXT NOT NULL,
 #                     adminName TEXT NOT NULL,

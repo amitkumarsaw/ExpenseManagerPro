@@ -88,7 +88,7 @@ def disable_user(self, userid, username):
     # ================ LAYOUT =================
     # toplevel window (disable/enable user)
     self.sub = Toplevel(self)
-    self.sub.title("ADD USER WINDOW")
+    self.sub.title("ENABLE/DISABLE WINDOW")
     self.sub.geometry("850x540+100+100")
     self.sub.focus_force()
     self.sub.grab_set()
@@ -137,7 +137,7 @@ def disable_user(self, userid, username):
 
     # enable button
     self.button_enable = Button(self.frame2, text='ENABLE', command=enable)
-    self.button_enable.grid(row=0, column=1, pady=30, padx=150)
+    self.button_enable.grid(row=0, column=1, pady=30, padx=90)
 
     # disable button
     self.button_disable = Button(self.frame2, text='DISABLE', command=disable)

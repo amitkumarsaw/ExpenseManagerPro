@@ -27,7 +27,7 @@ def add_subWindow(self, userid):
         self.conn = get_connection()
         self.cursor = self.conn.cursor()
         self.date = self.date_entry.get()
-        self.date_obj = datetime.datetime.strptime(self.date, '%m/%d/%y').strftime('%Y-%m-%d')
+        self.date_obj = datetime.datetime.strptime(self.date, '%d/%m/%y').strftime('%Y-%m-%d')      # edited
         self.title = self.title_entry.get()
         self.quantity = self.quantity_entry.get()
         self.expense = self.expense_entry.get()

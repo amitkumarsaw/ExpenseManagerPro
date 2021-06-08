@@ -64,8 +64,8 @@ def delete_subWindow(self, userid):
         # if else stmt to check if there is record selected or not
         if self.tree_view.selection():
             # warning window for delete all button 
-            self.MsgBox = messagebox.askquestion ('DELETE SELECTED RECORD','Are you sure you want to delete the selected records !!',icon = 'warning')
-            if self.MsgBox == 'yes':
+            MsgBox = messagebox.askquestion ('DELETE SELECTED RECORD','Are you sure you want to delete the selected records !!',icon = 'warning')
+            if MsgBox == 'yes':
                     for selected_item in self.tree_view.selection():
                         print(selected_item)      # it prints the selected row id
                         self.cursor.execute("DELETE FROM expense WHERE date=%s AND product_name=%s AND quantity=%s AND expense=%s AND userID = %s", (self.tree_view.set(selected_item, '#1'), self.tree_view.set(selected_item, '#2'), self.tree_view.set(selected_item, '#3'), self.tree_view.set(selected_item, '#4'), userid))
@@ -176,7 +176,7 @@ def delete_subWindow(self, userid):
 
     # button to delete the selected records 
     self.button_delete = Button(self.frame3, text='    DELETE    ', command=delete_record)
-    self.button_delete.grid(row=2, column=1, padx=280, pady=30)
+    self.button_delete.grid(row=2, column=1, padx=200, pady=30)
 
     # button to delete all the records
     self.button_deleteall = Button(self.frame3, text='DELETE ALL', command=delete_all)
